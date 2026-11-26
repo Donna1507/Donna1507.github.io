@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Donna Nguyen Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a calm, recruiter-friendly portfolio for an operations automation specialist
+   IDEA a transit route map: each tool is a station on the journey a shipment takes from email to invoice
+   PICTURE one thick route line with coloured stations, each station linking to its case study
+   COLOUR white ground, black ink, line colours red, blue, amber, green; night #0e1116
+   TYPE Figtree 800 display + Figtree text
+   LAYOUT laptop: title and intro across the top, route full width beneath; phone: title, route turns vertical, cases stack */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0e1116);--ink:light-dark(#111418,#eef1f5);--mute:light-dark(#4b5563,#a5adba);--line:light-dark(#e3e6ea,#262b33);--panel:light-dark(#f5f7f9,#161a21);--red:#e6261f;--blue:light-dark(#0a5cff,#4d8bff);--amber:#ffb400;--green:light-dark(#00a05a,#2fc47f);--violet:light-dark(#7a3cff,#a37bff)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+a{color:var(--blue)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(28px,4vw,64px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+header.band{padding-bottom:12px}
+.top{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:end}
+h1{font-size:clamp(36px,5vw,52px);line-height:1.05;letter-spacing:-.02em;font-weight:800;margin:0 0 12px;text-wrap:balance}
+.role{font-size:20px;font-weight:600;margin:0 0 14px}
+.intro{color:var(--mute);max-width:62ch;margin:0}
+.facts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.facts li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;border-top:1px solid var(--line);padding-top:10px}
+.facts b{font-weight:600;color:var(--mute)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:22px;font-weight:600;text-decoration:none;border:2px solid var(--ink);color:var(--ink)}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--panel)}
+.btn.solid:hover{opacity:.88;background:var(--ink)}
+.route{padding-top:8px}
+.fig{position:relative;height:260px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.fig a{cursor:pointer}
+svg text{paint-order:stroke;stroke:var(--bg);stroke-width:4px;fill:var(--ink);font-family:Figtree,system-ui,sans-serif}
+.cap{color:var(--mute);font-size:14px;margin:6px 0 0}
+nav.scroll{display:flex;gap:8px;overflow-x:auto;padding:10px max(5vw,16px);border-block:1px solid var(--line);background:var(--bg)}
+nav.scroll a{flex:none;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px;padding:10px 14px;border-radius:20px;min-height:44px;display:inline-flex;align-items:center;gap:8px}
+nav.scroll a:hover{background:var(--panel)}
+nav .dot{width:12px;height:12px;border-radius:50%;background:var(--c);flex:none}
+@media(min-width:900px){nav.scroll{position:sticky;top:0;z-index:5}}
+.case{display:grid;grid-template-columns:minmax(0,15em) minmax(0,1fr);gap:clamp(20px,4vw,56px);padding-block:44px;border-top:1px solid var(--line)}
+.case:first-child{border-top:0}
+.side{position:relative;padding-left:34px}
+.side::before{content:"";position:absolute;left:8px;top:6px;bottom:0;width:6px;border-radius:3px;background:var(--c)}
+.side::after{content:"";position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:var(--bg);border:5px solid var(--c)}
+.kind{font-size:14px;color:var(--mute);margin:0 0 4px}
+.case h2{font-size:clamp(24px,3vw,32px);line-height:1.1;letter-spacing:-.02em;margin:0 0 12px;text-wrap:balance}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.tags li{font-size:13px;font-weight:500;padding:3px 10px;border-radius:12px;background:var(--panel);border:1px solid var(--line)}
+.body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 36px}
+.body h3{font-size:16px;font-weight:800;margin:0 0 4px}
+.body p{margin:0}
+.body ul{margin:0;padding-left:1.1em}
+.body li{margin-bottom:4px}
+.full{grid-column:1/-1}
+.impact{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(13em,1fr));gap:10px;margin-top:10px}
+.m{border:2px dashed color-mix(in srgb,var(--c) 70%,transparent);border-radius:10px;padding:10px 12px;background:var(--bg)}
+.m span{display:block;font-size:13px;color:var(--mute)}
+.m b{font-size:18px}
+.m.real{border-style:solid}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.todo{background:light-dark(#fff4d6,#3a2e0c);border:1px solid var(--amber);border-radius:10px;padding:12px 16px;font-size:15px}
+footer.band{background:var(--ink);color:var(--bg)}
+footer a{color:var(--bg)}
+footer .row{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;align-items:center}
+footer h2{font-size:28px;margin:0 0 6px;letter-spacing:-.02em}
+footer p{margin:0;opacity:.85}
+footer .btn{border-color:var(--bg);color:var(--bg)}
+footer .btn:hover{background:transparent;opacity:.85}
+@media(max-width:860px){.top{grid-template-columns:minmax(0,1fr)}.case{grid-template-columns:minmax(0,1fr)}.side{padding-bottom:8px}.side::before{display:none}}
+@media(max-width:600px){.body{grid-template-columns:minmax(0,1fr)}.fig{height:520px}.facts li{grid-template-columns:minmax(0,1fr);gap:0}}
+@media(prefers-reduced-motion:no-preference){.tok{animation:ride 9s linear infinite}}
+@keyframes ride{from{offset-distance:0%}to{offset-distance:100%}}
+@media print{nav.scroll{display:none}}
+</style>
+</head>
+<body>
+<header class="band">
+ <div class="wrap top">
+  <div>
+   <h1>Donna Nguyen</h1>
+   <p class="role">Operational Excellence and Logistics Automation</p>
+   <p class="intro">Logistics professional with 5+ years across inland transportation, international shipping, import and export and customs compliance. I work in Landside Operations at A.P. Moller-Maersk, where I turn manual booking, billing and documentation work into reliable tools built with Python, Playwright, JavaScript and Excel. Alongside, I study Artificial Intelligence at the University of Information Technology (UIT), VNU-HCM.</p>
+   <div class="links">
+    <a class="btn solid" href="https://github.com/Donna1507">GitHub: Donna1507</a>
+    <a class="btn" href="#contact">Contact</a>
+   </div>
+  </div>
+  <ul class="facts">
+   <li><b>Now</b><span>Landside Operations Agent, Maersk (Dec 2025 to present)</span></li>
+   <li><b>Before</b><span>Logistics Specialist, Ozeol; Import-Export Staff, Phu Tai Binh Dinh Wood</span></li>
+   <li><b>Studying</b><span>Artificial Intelligence, UIT continuing education (2025 to present)</span></li>
+   <li><b>Build with</b><span>Python, Playwright, pandas, openpyxl, Node.js, Excel VBA, Power BI, PySpark</span></li>
+  </ul>
+ </div>
+</header>
+
+<section class="band route" aria-label="Project map">
+ <div class="wrap">
+  <div class="fig" id="map"><svg id="mapsvg" role="img" aria-label="Route from shipment email to invoice, with one station per project"></svg></div>
+  <p class="cap">Each project is a station on the journey a shipment takes from first email to final invoice. Select a station to jump to its case study.</p>
+ </div>
+</section>
+
+<nav class="scroll" id="nav" aria-label="Case studies"></nav>
+
+<main class="band" style="padding-top:8px">
+ <div class="wrap">
+  <p class="todo"><b>Draft:</b> dashed boxes are metric placeholders for me to fill in with measured figures before sharing. No numbers have been estimated.</p>
+  <div id="cases"></div>
+ </div>
+</main>
+
+<footer class="band" id="contact">
+ <div class="wrap row">
+  <div>
+   <h2>Let's talk about process automation</h2>
+   <p>Open to roles in operational excellence, process improvement and logistics automation.</p>
+  </div>
+  <div class="links" style="margin:0">
+   <a class="btn" href="https://github.com/Donna1507">github.com/Donna1507</a>
+   <a class="btn" href="mailto:ngocdiep1517@gmail.com">ngocdiep1517@gmail.com</a>
+  </div>
+ </div>
+</footer>
+
+<script>
+{
+const cases=[
+{id:"tracker",c:"var(--violet)",st:"Email in",kind:"Shipment documents",sh:"Shipment Tracker",title:"Outlook Shipment Tracker",
+ tags:["JavaScript (Node.js)","Python","Playwright","Excel (OOXML)","Office.js","Microsoft Graph POC"],
+ problem:"Shipment documents arrive across long email threads. Saving each attachment by hand into the right import or export folder is slow, and files get missed when a thread keeps growing.",
+ solution:"A Windows tool that adds Track, Import and Export buttons to Outlook. One click follows a shipment's email thread and saves every past and future attachment into structured shipment folders, detecting the shipment code from the subject line.",
+ rel:["Background mail polling about every 5 minutes, with catch-up after a restart","Never re-downloads a saved file; tracking expires after a set period","Automatic migration of data from the previous version","Shipped as a single executable (esbuild, pkg); Office.js add-in and Graph (C#/.NET, MSAL) evaluated as alternatives"],
+ metrics:["Shipments tracked per month","Minutes saved per shipment","Users on the team"]},
+{id:"einvoice",c:"var(--blue)",st:"Invoices in",kind:"Document processing",sh:"E-Invoice Tool",title:"Outlook E-Invoice Tool",
+ tags:["Python","Outlook integration"],
+ problem:"E-invoices (PDF and XML) land in shared mailboxes mixed across many customers, and collecting them for checking or filing meant searching folder by folder.",
+ solution:"A portable tool that searches shared-mailbox folders, collects PDF and XML invoice attachments, filters them by customer and files them into an organised structure.",
+ rel:["Portable: runs without installation","Customer-based filtering keeps each customer's files apart","Organised output folders ready for review"],
+ metrics:["Invoices collected per run","Time per collection, before and after"]},
+{id:"telikos",c:"var(--red)",st:"Booking",kind:"Booking and data preparation",sh:"Bulk Booking Tools",title:"Telikos Bulk Booking and Data Tools",
+ tags:["Python","Playwright","openpyxl","Excel"],
+ problem:"Creating inland bookings means re-keying shipment details, container lists, PO references and document data into the transport management system, one booking at a time.",
+ solution:"Excel-driven bulk booking and data-mapping tools that turn shipment information into consistent, validated system inputs, plus a pilot of browser-assisted entry and validation for selected revenue and cost fields.",
+ rel:["Standard input template so every booking is entered the same way","Validation before entry rather than correction after","Status written back to the source file row by row"],
+ metrics:["Bookings per batch","Time per booking, before and after","Entry errors, before and after"]},
+{id:"smartops",c:"var(--amber)",st:"Charges and reconciliation",kind:"Featured project",sh:"Smart Ops Suite",title:"Telikos Smart Ops Suite",
+ tags:["Python","Playwright","pandas","openpyxl","tkinter","PyInstaller"],
+ problem:"Two slow, error-prone tasks sit between booking and billing: entering revenue and cost charge lines for many containers, and checking a customer's statement of account (SOA) against the charges in the finance system before any invoice is raised.",
+ solution:"One desktop app with two tools. The charge filler reads a standard Excel template and enters charge lines in bulk, optionally merging identical per-container lines into one. The SOA reconciliation tool filters bookings by customer, maps containers to orders, reads charges in the finance system, compares them line by line with the SOA and explains every mismatch against the rate table.",
+ rel:["All-or-nothing billing: a job type is invoiced only when every SOA line matches and the totals agree","Stops for explicit approval before generating any invoice","Handles duplicate, cancelled and draft bookings without blocking a valid SOA","Paging and slow-screen safeguards, with a warning if fewer rows are read than expected","Result workbook with a summary sheet, mismatch reasons and an error notice; packaged as a Windows executable"],
+ metrics:["SOAs reconciled per month","Hours per SOA, before and after","Charge lines entered per run","Billing errors caught before invoicing"]},
+{id:"kevin",c:"var(--green)",st:"Billing",kind:"Job creation and billing",sh:"Kevin Auto",title:"Kevin Auto",
+ tags:["Python","Playwright","openpyxl","C# launcher"],
+ problem:"Billing ran in two manual stages: create jobs and upload revenue and cost lines, send them to finance and soft close, then issue invoices and copy job and billing numbers back into the tracking file.",
+ solution:"End-to-end automation of both stages, with Preview, single-booking and bulk modes, writing Job and Billing Document Numbers back to the source file.",
+ rel:["Pre-run validation: customer and booking matching, area and VAT mapping, duplicate line detection","Checkpoint-based state machine with retry rounds, so an interrupted run resumes without duplicate jobs, invoices or charges","Safe stop on unexpected screens and per-shipment error isolation","Run logs and error screenshots for every failure"],
+ metrics:["Bookings billed per run","Time per booking, before and after","Duplicate invoices since go-live"]},
+{id:"aqi",c:"var(--mute)",st:"Big data (UIT)",kind:"Academic team project, UIT, Aug to Sep 2026",sh:"AQI Platform",title:"Big Data AQI Analytics Platform",
+ tags:["Python","Apache Kafka","HDFS","PySpark","HBase","FastAPI","Grafana","Docker Compose"],
+ problem:"Compute Vietnam-standard air quality index values (QĐ 1459/QĐ-TCMT) at scale from raw hourly weather and pollution data.",
+ solution:"An end-to-end pipeline: Python collectors pull from the OpenWeather API into Kafka and HDFS, multi-phase PySpark jobs compute the index, results go to HBase and are served through FastAPI to Grafana dashboards, all on Docker Compose.",
+ rel:["Multi-phase Spark jobs that can be rerun independently","Containerised stack for repeatable setup","Scalability benchmarked across executor counts"],
+ real:[["Locations","200"],["Hourly records","about 8.8M"],["Spark speed-up","2.78× on 8M rows, 4 executors"]],
+ metrics:["My role on the team"]}
+];
+const esc=s=>String(s).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+document.getElementById("nav").innerHTML=cases.map(k=>`<a href="#${k.id}" style="--c:${k.c}"><span class="dot"></span>${esc(k.title)}</a>`).join("");
+document.getElementById("cases").innerHTML=cases.map(k=>`
+<article class="case" id="${k.id}" style="--c:${k.c}">
+ <div class="side"><p class="kind">${esc(k.kind)}</p><h2>${esc(k.title)}</h2><ul class="tags">${k.tags.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>
+ <div class="body">
+  <div><h3>Problem</h3><p>${esc(k.problem)}</p></div>
+  <div><h3>Solution</h3><p>${esc(k.solution)}</p></div>
+  <div class="full"><h3>Built for reliability</h3><ul>${k.rel.map(r=>`<li>${esc(r)}</li>`).join("")}</ul></div>
+  <div class="full impact"><h3>Impact</h3>
+   <div class="metrics">${(k.real||[]).map(([a,b])=>`<div class="m real"><span>${esc(a)}</span><b>${esc(b)}</b></div>`).join("")}${k.metrics.map(m=>`<div class="m"><span>${esc(m)}</span><b>Add figure</b></div>`).join("")}</div>
+  </div>
+ </div>
+</article>`).join("");
+
+const s=document.getElementById("mapsvg");
+const draw=()=>{
+ const W=s.clientWidth,H=s.clientHeight;if(!W||!H)return;
+ const vert=W<520,n=cases.length,pts=[];
+ if(vert){const x=40,t=28,b=H-28;for(let i=0;i<n;i++)pts.push([x,t+(b-t)*i/(n-1)])}
+ else{const l=Math.min(110,W*.09),r=W-l,y1=H*.36,y2=H*.62;for(let i=0;i<n;i++)pts.push([l+(r-l)*i/(n-1),i%2?y2:y1])}
+ let d=`M${pts[0][0]},${pts[0][1]}`;
+ for(let i=1;i<n;i++){const[a,b]=pts[i-1],[c,e]=pts[i];if(vert)d+=` L${c},${e}`;else{const m=(a+c)/2,dy=Math.abs(e-b);d+=` L${m-dy/2},${b} L${m+dy/2},${e} L${c},${e}`}}
+ const stations=pts.map(([x,y],i)=>{const k=cases[i],up=!vert&&i%2===0,an=i===0?"start":i===n-1?"end":"middle",tx=i===0?x-18:i===n-1?x+18:x;
+  const lab=vert?`<text x="${x+26}" y="${y-3}" font-size="16" font-weight="800">${esc(k.title)}</text><text x="${x+26}" y="${y+16}" font-size="14" style="fill:var(--mute)">${esc(k.st)}</text>`
+  :`<text x="${tx}" y="${up?y-46:y+56}" text-anchor="${an}" font-size="16" font-weight="800">${esc(k.sh)}</text><text x="${tx}" y="${up?y-26:y+76}" text-anchor="${an}" font-size="14" style="fill:var(--mute)">${esc(k.st)}</text>`;
+  return `<a href="#${k.id}" aria-label="${esc(k.title)}"><circle cx="${x}" cy="${y}" r="15" fill="var(--bg)" stroke="${k.c}" stroke-width="7"/>${lab}</a>`}).join("");
+ s.innerHTML=`<path d="${d}" fill="none" stroke="var(--line)" stroke-width="22" stroke-linejoin="round" stroke-linecap="round"/>
+  <path id="rt" d="${d}" fill="none" stroke="var(--ink)" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect class="tok" x="-9" y="-6" width="18" height="12" rx="2" fill="var(--amber)" stroke="var(--ink)" stroke-width="2" style="offset-path:path('${d}');offset-rotate:auto"/>
+  ${stations}`;
+};
+const ro=new ResizeObserver(draw);ro.observe(s);draw();
+}
+</script>
+</body>
+</html>
